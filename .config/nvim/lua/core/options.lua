@@ -42,3 +42,49 @@ vim.opt.shortmess:append("c") -- Don't give |ins-completion-menu| messages (defa
 vim.opt.iskeyword:append("-") -- Hyphenated words recognized by searches (default: does not include '-')
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- Don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode. (default: 'croql')
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles") -- Separate Vim plugins from Neovim in case Vim still in use (default: includes this path if Vim is installed)
+
+-- =========================
+-- FOLDING (TREESITTER BASED)
+-- =========================
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Manual-first behavior
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+
+-- Disable auto open/close
+vim.opt.foldopen = ""
+vim.opt.foldclose = ""
+
+-- =========================
+-- CLEAN FOLD TEXT (FIRST LINE ONLY)
+-- =========================
+
+function _G.custom_foldtext()
+	return vim.fn.getline(vim.v.foldstart)
+end
+
+vim.opt.foldtext = "v:lua.custom_foldtext()"
+
+-- =========================
+-- REMOVE UGLY FOLD SYMBOLS
+-- =========================
+
+vim.opt.fillchars:append({
+	fold = " ",
+	foldopen = " ",
+	foldclose = " ",
+	foldsep = " ",
+})
+
+-- =========================
+-- REMOVE BLUE BACKGROUND
+-- =========================
+
+vim.api.nvim_set_hl(0, "Folded", {
+	fg = "NONE",
+	bg = "NONE",
+})

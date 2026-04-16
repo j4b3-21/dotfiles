@@ -8,9 +8,18 @@ return {
 			"s",
 			mode = { "n", "x", "o" },
 			function()
-				require("flash").jump()
+				require("flash").jump({
+					search = {
+						mode = "search", -- allows full-screen search
+					},
+					label = {
+						after = true,
+						before = true,
+					},
+					pattern = ".", -- 👈 THIS is the key (match everything visible)
+				})
 			end,
-			desc = "Flash",
+			desc = "Flash Full Screen",
 		},
 		{
 			"S",

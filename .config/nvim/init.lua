@@ -39,4 +39,7 @@ require("lazy").setup({
 	require("plugins.conform.conform"),
 	require("plugins.linting.linting"),
 	require("plugins.supermaven.supermaven"),
+	require("plugins.runner-nvim.runner-nvim"),
+	require("plugins.focus-nvim.focus-nvim"),
+	require("plugins.smear-cursor.smear-cursor"),
 })
