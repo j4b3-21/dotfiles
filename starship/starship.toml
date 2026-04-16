@@ -1,0 +1,161 @@
+add_newline = false
+command_timeout = 1000
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$aws\
+$docker_context\
+$line_break\
+$character
+"""
+
+right_format = """
+$cmd_duration\
+$python\
+$nodejs\
+$lua\
+$rust\
+$golang\
+$jobs\
+$time
+"""
+
+palette = "catppuccin_mocha"
+
+# ───────────────── Character ─────────────────
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[N] >>>"
+
+# ───────────────── Directory ─────────────────
+
+[directory]
+style = "bold lavender"
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = ""
+Music = ""
+Pictures = ""
+
+# ───────────────── Git ─────────────────
+
+[git_branch]
+symbol = " "
+style = "green"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "yellow"
+format = "([$all_status$ahead_behind]($style)) "
+
+# ───────────────── Fill ─────────────────
+
+[fill]
+symbol = " "
+
+# ───────────────── Languages ─────────────────
+
+[python]
+symbol = " "
+style = "teal"
+format = '[${symbol}(${version} )(\($virtualenv\) )]($style)'
+
+[nodejs]
+symbol = " "
+style = "blue"
+
+[lua]
+symbol = " "
+style = "blue"
+
+[golang]
+symbol = " "
+style = "cyan"
+
+[rust]
+symbol = " "
+style = "orange"
+
+# ───────────────── AWS / Docker ─────────────────
+
+[aws]
+symbol = " "
+style = "yellow"
+format = "[$symbol($profile )]($style)"
+
+[docker_context]
+symbol = " "
+style = "blue"
+format = "[$symbol]($style) "
+
+# ───────────────── Jobs ─────────────────
+
+[jobs]
+symbol = " "
+style = "red"
+number_threshold = 1
+format = "[$symbol]($style) "
+
+# ───────────────── Command Duration ─────────────────
+
+[cmd_duration]
+min_time = 500
+style = "yellow"
+format = "[$duration]($style) "
+
+# ───────────────── Time ─────────────────
+
+[time]
+disabled = false
+format = "[$time]($style)"
+time_format = "%H:%M"
+style = "dimmed white"
+
+# ───────────────── OS ─────────────────
+
+[os]
+disabled = false
+style = "bold blue"
+
+[os.symbols]
+Macos = " "
+
+# ───────────────── Catppuccin Mocha Palette ─────────────────
+
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
