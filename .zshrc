@@ -1,9 +1,10 @@
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ########################################
 # --- Vi mode ---
 ########################################
-bindkey -e
+bindkey -v
 
 function zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
@@ -119,6 +120,7 @@ alias rG='noglob rgf -f ${=${(j: -f :)RG_EXCLUDES}}'
 alias rg='rG -i'
 alias y="yazi"
 alias ff="fastfetch"
+alias icloud='cd ~/Library/Mobile\ Documents/com~apple~CloudDocs'
 
 function y() {
 	local tmp="$(mktemp -t yazi-cwd.XXXXXX)"
@@ -130,10 +132,27 @@ function y() {
 }
 
 declare -a lastoutput
-eval "$(zoxide init zsh)"
 eval "$(zoxide init zsh --cmd cd)"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
+
+
+
+# Oh My Zsh (only for plugins)
+export ZSH="$HOME/.oh-my-zsh"
+
+plugins=(
+  git
+  web-search
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
+  you-should-use
+  zsh-completions
+)
+  ZSH_THEME=""
+
+source $ZSH/oh-my-zsh.sh
