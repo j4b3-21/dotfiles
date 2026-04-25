@@ -156,3 +156,4 @@ plugins=(
   ZSH_THEME=""
 
 source $ZSH/oh-my-zsh.sh
+eval "$(tv init zsh)"

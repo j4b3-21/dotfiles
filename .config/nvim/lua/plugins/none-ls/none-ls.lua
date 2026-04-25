@@ -13,9 +13,6 @@ return {
 				-- Shell
 				null_ls.builtins.diagnostics.shellcheck,
 
-				-- Python
-				null_ls.builtins.diagnostics.ruff,
-
 				-- JS
 				null_ls.builtins.diagnostics.eslint_d,
 
