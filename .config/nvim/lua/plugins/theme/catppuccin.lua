@@ -12,6 +12,17 @@ return {
 			transparent_background = true,
 			show_end_of_buffer = false,
 			term_colors = false,
+			highlight_overrides = {
+
+				all = function(colors)
+					return {
+						LineNr = { fg = colors.overlay1 }, -- darker than default
+						CursorLineNr = { fg = colors.lavender, style = { "bold" } },
+						LineNrAbove = { fg = colors.overlay1 },
+						LineNrBelow = { fg = colors.overlay1 },
+					}
+				end,
+			},
 
 			dim_inactive = {
 				enabled = false,
